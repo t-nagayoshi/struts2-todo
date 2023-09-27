@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "springframework.org/dtd/spring-beans-2.0.dtd">
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "springframework.org/dtd/spring-beans-2.0.dtd"> -->
 
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- SQLのプロパティファイルを読み込むためのBeanを追加 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:application-placeholder.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- DataSourceの設定 (プロパティプレースホルダーを使用) -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${dbcp.jdbc.driverClassName}" />
+        <property name="url" value="${dbcp.jdbc.url}" />
+        <property name="username" value="${dbcp.jdbc.username}" />
+        <property name="password" value="${dbcp.jdbc.password}" />
+    </bean>
+
+    <!-- JdbcTemplateの設定 -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <!-- Example of Struts action instantiated by Spring -->
     <bean id="helloWorldAction" class="jp.co.example.HelloWorldAction" scope="prototype"/>
+    <bean id="userDao" class="jp.co.example.dao.UserDAO"/>
 </beans>
 
