@@ -14,6 +14,8 @@
         <struts2.version>2.5.22</struts2.version>
         <log4j2.version>2.12.1</log4j2.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- spring のバージョンを追加-->
+        <spring.version>4.3.25.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -102,10 +104,24 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
             <version>5.3.13.RELEASE</version>
+        </dependency> -->
+
+        <!-- https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils -->
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.7</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.9.0</version>
         </dependency>
 
         <!-- Tests -->
