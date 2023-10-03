@@ -1,2 +1,3 @@
 target/
-bin/
+bini/
+.DS_Store
