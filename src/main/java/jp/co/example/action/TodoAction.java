@@ -32,25 +32,13 @@ public class TodoAction extends ActionSupport {
     private List<TodoItemDTO> todoItemList;
 
     public String execute() throws Exception {
-//        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        TodoItemDAO dao = (TodoItemDAO)ctx.getBean("todoItemDAO");
 
-        TodoItemDTO todoItem = todoItemDAO.getRowTodoItems();
-        List<TodoItemDTO> todoItemList = todoItemDAO.getAllTodoItems();
-
-//        System.out.print("itemid: " + dto.get(0).getItemid());
-//        System.out.print("userid: " + dto.get(0).getUserid());
-
-//        DbUtils.loadDriver(JDBC_DRIVER);
-//        QueryRunner run = new QueryRunner(CustomDataSource.getInstance());
-//        ResultSetHandler<TodoItemDTO> resultHandler = new BeanHandler<TodoItemDTO>(TodoItemDTO.class);
-//
-//        TodoItemDTO dto = run.query("SELECT * FROM todoitem WHERE itemid=?",
-//           resultHandler, 1);
+        // todoItem = todoItemDAO.getRowTodoItems();
+        todoItemList = todoItemDAO.getAllTodoItems();
 
         //Display values
-        System.out.print("itemid: " + todoItemList.get(0).getItemid());
-        System.out.print("userid: " + todoItemList.get(0).getUserid());
+        //System.out.print("itemid: " + todoItemList.get(0).getItemid());
+        //System.out.print("userid: " + todoItemList.get(0).getUserid());
         return SUCCESS;
     }
 
