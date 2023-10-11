@@ -13,6 +13,7 @@
     </context-param>
 
     <!-- Filters -->
+    <!-- クラス名を論理名で定義する -->
     <filter>
         <filter-name>struts2-prepare</filter-name>
         <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareFilter</filter-class>
@@ -26,6 +27,7 @@
         <filter-class>org.apache.struts2.dispatcher.filter.StrutsExecuteFilter</filter-class>
     </filter>
 
+    <!-- filterで定義した論理名とURLを紐付ける -->
     <filter-mapping>
         <filter-name>struts2-prepare</filter-name>
         <url-pattern>/*</url-pattern>
@@ -68,6 +70,7 @@
 
     <!-- Welcome file lists -->
     <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>default.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>

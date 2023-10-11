@@ -40,6 +40,14 @@
             <result>/WEB-INF/jsp/todo.jsp</result>
         </action>
 
+        <action name="sessionman" class="jp.co.example.action.LoginAction" method="execute">
+            <result name="SUCCESS">/wel.jsp</result>
+            <result name="LOGIN">/index.jsp</result>
+        </action>
+        <action name="logout" class="jp.co.example.action.LoginAction" method="logout">
+            <result name="LOGOUT">/index.jsp</result>
+        </action>
+
     </package>
 
 </struts>
