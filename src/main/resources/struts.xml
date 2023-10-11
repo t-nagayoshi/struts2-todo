@@ -5,10 +5,19 @@
 
 <struts>
 
-    <constant name="struts.devMode" value="true"/>
-    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <!-- strutsで使用するテーマの設定 -->
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
 
     <package name="myPackage" extends="struts-default">
+        <interceptors>
+            <interceptor name="simple" class="jp.co.example.intercepter.SampleInterceptor" />
+            <interceptor-stack name="sampleInterceptorStack" >
+                <interceptor-ref name="simple" />
+                <interceptor-ref name="defaultStack" />
+             </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="sampleInterceptorStack" />
 
         <default-action-ref name="index" />
 <!--
@@ -25,6 +34,11 @@
             <result>/WEB-INF/jsp/todo.jsp</result>
         </action>
 
+        <action name="login" class="loginAction">
+            <interceptor-ref name="sampleInterceptorStack" />
+            <result name="input">/WEB-INF/index.jsp</result>
+            <result>/WEB-INF/jsp/todo.jsp</result>
+        </action>
 
     </package>
 

@@ -38,6 +38,6 @@
     <!-- Example of Struts action instantiated by Spring -->
     <bean id="helloWorldAction" class="jp.co.example.HelloWorldAction" scope="prototype"/>
     <bean id="todoAction" class="jp.co.example.action.TodoAction" scope="prototype"/>
-
+    <bean id="loginAction" class="jp.co.example.action.LoginAction" scope="prototype"/>
 </beans>
 
